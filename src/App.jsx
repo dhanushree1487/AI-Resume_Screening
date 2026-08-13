@@ -1,4 +1,8 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+
+// ==================== RECRUITER ====================
 
 import RecruiterLogin from "./pages/recruiter/RecruiterLogin";
 import RecruiterSignup from "./pages/recruiter/RecruiterSignup";
@@ -7,16 +11,32 @@ import RecruiterLayout from "./components/RecruiterLayout";
 
 import ManageJobs from "./pages/recruiter/ManageJobs";
 import PostJob from "./pages/recruiter/PostJob";
-import Candidates from "./pages/recruiter/Candidates";
 import Applications from "./pages/recruiter/Applications";
 import RecruiterProfile from "./pages/recruiter/RecruiterProfile";
+
+// ==================== CANDIDATE ====================
+
+import CandidateLogin from "./pages/candidate/CandidateLogin";
+import CandidateSignup from "./pages/candidate/CandidateSignup";
+import CandidateDashboard from "./pages/candidate/CandidateDashboard";
+import UploadResume from "./pages/candidate/UploadResume";
+import SearchJobs from "./pages/candidate/SearchJobs";
+import CandidateProfile from "./pages/candidate/CandidateProfile";
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* ================= RECRUITER AUTH ================= */}
+        {/* ==================== HOME ==================== */}
+
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
+        {/* ==================== RECRUITER AUTH ==================== */}
 
         <Route
           path="/recruiter/login"
@@ -28,63 +48,65 @@ function App() {
           element={<RecruiterSignup />}
         />
 
-
-        {/* ================= RECRUITER PAGES ================= */}
+        {/* ==================== RECRUITER ==================== */}
 
         <Route
           path="/recruiter"
           element={<RecruiterLayout />}
         >
-
-          {/* Dashboard */}
           <Route
             path="dashboard"
             element={<RecruiterDashboard />}
           />
 
-          {/* Jobs */}
           <Route
             path="jobs"
             element={<ManageJobs />}
           />
 
-          {/* Post Job */}
           <Route
             path="jobs/post"
             element={<PostJob />}
           />
 
-          {/* Candidates */}
-          <Route
-            path="candidates"
-            element={<Candidates />}
-          />
-
-          {/* Applications */}
           <Route
             path="applications"
             element={<Applications />}
           />
 
-          {/* Profile */}
           <Route
             path="profile"
             element={<RecruiterProfile />}
           />
-
         </Route>
 
+        {/* ==================== CANDIDATE AUTH ==================== */}
 
-        {/* Default */}
         <Route
-          path="*"
-          element={
-            <Navigate
-              to="/recruiter/login"
-              replace
-            />
-          }
+          path="/candidate/login"
+          element={<CandidateLogin />}
         />
+    
+        <Route
+          path="/candidate/signup"
+          element={<CandidateSignup />}
+        />
+        <Route
+        path="/candidate/dashboard"
+        element={<CandidateDashboard />}
+         />
+         <Route
+         path="/candidate/upload-resume"
+          element={<UploadResume />}
+            />
+            <Route
+            path="/candidate/jobs"
+            element={<SearchJobs />}
+            />
+            <Route
+            path="/candidate/profile"
+            element={<CandidateProfile />}
+            />
 
       </Routes>
     </BrowserRouter>
