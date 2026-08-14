@@ -1,4 +1,8 @@
-# Python virtual environment
+# =========================
+# Python / Backend
+# =========================
+
+# Virtual environment
 backend/venv/
 
 # Python cache
@@ -10,18 +14,45 @@ __pycache__/
 .env.*
 !.env.example
 
-# Local database
+# Local databases
 *.db
 *.sqlite
 *.sqlite3
 
-# IDE / editor files
-.vscode/
-.idea/
-
-# OS files
-.DS_Store
-Thumbs.db
-
 # Logs
 *.log
+
+# =========================
+# Node / Frontend
+# =========================
+
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =========================
+# IDE / Editor
+# =========================
+
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
